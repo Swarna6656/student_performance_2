@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Prediction</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+        }
+
+        .topbar {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 18px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .left-info {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            width: 220px;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            width: 420px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        select {
+            width: 95%;
+            padding: 12px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        select:focus {
+            border: 1px solid #2a5298;
+        }
+
+        button {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 12px;
+            width: 95%;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        Viharatech Institute
+    </div>
+
+    <div class="left-info">
+        <p><b>Name:</b> swarnalatha</p>
+        <p><b>Email:</b> swarna@gmail.com</p>
+    </div>
+
+    <div class="main">
+
+        <div class="container">
+
+            <h2>Student Performance Prediction</h2>
+
+            <form action="/predict" method="post">
+
+                <select name="hours_studied" required>
+                    <option value="">Select Hours Studied</option>
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                    <option value="5">5 Hours</option>
+                    <option value="7">7 Hours</option>
+                    <option value="9">9 Hours</option>
+                </select>
+
+                <select name="previous_scores" required>
+                    <option value="">Select Previous Score</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                    <option value="90">90</option>
+                    <option value="100">100</option>
+                </select>
+
+                <select name="sleep_hours" required>
+                    <option value="">Select Sleep Hours</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+
+                <select name="sample_papers" required>
+                    <option value="">Select Practice Papers</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+
+                <button type="submit">Predict</button>
+
+            </form>
+
+            <div class="result">
+                {{ prediction_text }}
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
